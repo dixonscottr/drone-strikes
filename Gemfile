@@ -23,6 +23,8 @@ gem 'pry-byebug'
 
 gem 'bcrypt'
 
+gem 'json'
+
 group :test do
   gem 'faker'
   gem 'rspec'

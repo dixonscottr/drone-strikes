@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
-<body>
-  <h1>Drone Strikes</h1>
+<body class='#e0e0e0 grey lighten-2'>
+  <header>
+  <h1><a href='/'>Drone Strikes</a></h1>
+  </header>
+  <main>
+    <div id='option-buttons'>
+      <a id='view-all' class="waves-effect waves-light btn #9e9d24 lime darken-3" href='/dronestrikes'>View all</a>
+      <a class="waves-effect waves-light btn #9e9d24 lime darken-3">View by year</a>
+      <a class="waves-effect waves-light btn #9e9d24 lime darken-3">View by country</a>
+    </div>
+
   <%= yield %>
+
+  </main>
+
+  <footer class="page-footer #9e9d24 lime darken-3">
+    <div class="footer-copyright">
+      Coded by <a href='http://www.github.com/dixonscottr'>Scott Dixon</a>
+      <span class='right'>Data from Josh Begley's <a class="grey-text text-lighten-4" href='http://dronestre.am/'>dronestre.am</a></span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

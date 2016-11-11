@@ -1,7 +1,18 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $(".dropdown-button").dropdown({hover: false});
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#view-all').click(function(event){
+    event.preventDefault();
+    var link = $(this).attr('href');
+    $.ajax({
+      url: link,
+      method: 'get'
+    }).done(function(serverResponse){
+      $('main').append(serverResponse);
+    });
+
+  });
+
+
+
 });

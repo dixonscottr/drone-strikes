@@ -1,4 +1,4 @@
-.container {
+/*.container {
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
@@ -6,4 +6,44 @@
 }
 th {
   text-align: left;
+}*/
+/*li a{
+  color: white;
+}*/
+
+  body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding-bottom: 80px;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  footer {
+    width : 100%;
+    position: fixed;
+    bottom: 0px;
+    /*margin-top: 20px*/
+  }
+
+  a {
+    color: white;
+  }
+
+  a:hover {
+    color: red;
+  }
+
+  #linked-data {
+    text-align: right;
+  }
+
+img {
+  width: 50%;
+  margin: 20px;
+  border: 2px solid gray;
+  border-radius: 10px;
 }

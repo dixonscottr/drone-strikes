@@ -15,8 +15,8 @@ class CreateDronestrikes < ActiveRecord::Migration
       t.string  :bureau_summary
       t.string  :link
       t.string  :target
-      t.integer :latitude
-      t.integer :longitude
+      t.float   :latitude
+      t.float   :longitude
       t.string  :names
 
       t.timestamps

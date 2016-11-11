@@ -5,6 +5,9 @@
     <div class="card-content white-text">
       <span class="card-title"><a class='get-drone-info' href='<%= "/dronestrikes/#{strike.id}" %>'><%= strike.strike_date %></a></span>
       <p><%= strike.country %> | <%=strike.total_deaths %> killed</p>
+      <div class='additional-info'>
+
+      </div>
     </div>
     <div class="card-action">
       <a href='<%= strike.link %>'>Link to story</a>

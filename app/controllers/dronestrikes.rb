@@ -6,6 +6,7 @@ end
 get '/dronestrikes/:dronestrike_id' do
   @strike = Dronestrike.find_by(id: params[:dronestrike_id])
   if request.xhr?
+    # binding.pry
     erb :'/dronestrikes/_add_info', layout: false
   else
     erb :'/dronestrikes/show'

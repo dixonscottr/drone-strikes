@@ -1,0 +1,16 @@
+<!-- <div> -->
+<div class="row center-align">
+  <div class='col s12 m6'>
+  <div class="card #006064 cyan darken-4 hoverable">
+    <div class="card-content white-text">
+      <span class="card-title"><%= @strike.strike_date %></span>
+      <p><%= @strike.country %> | <%= @strike.total_deaths %> killed</p>
+      <p><%= @strike.narrative %></p>
+    </div>
+    <div class="card-action">
+      <a href='<%= @strike.link %>'>Link to story</a>
+      <a href='<%= "http://maps.google.com/?ll=#{@strike.latitude},#{@strike.longitude}" %>'>Map</a>
+    </div>
+  </div>
+</div>
+</div>

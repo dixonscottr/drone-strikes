@@ -1,0 +1,19 @@
+<div class="row">
+<% @strikes.each do |strike| %>
+        <div class="col s12 m4">
+          <div class="card #006064 cyan darken-4">
+            <div class="card-content white-text">
+              <span class="card-title"><%= strike.strike_date %></span>
+              <p><%= strike.country %> | <%=strike.total_deaths %> killed</p>
+              <p><%= strike.narrative %></p>
+            </div>
+            <div class="card-action">
+              <a href='<%= strike.link %>'>Link to story</a>
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+<% end %>
+
+      </div>
+<!--     <iframe src = "https://maps.google.com/maps?q=10.305385,77.923029&hl=es;z=14&amp;output=embed"></iframe> -->

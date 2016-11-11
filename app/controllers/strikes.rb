@@ -1,4 +1,8 @@
-get '/strikes' do
+get '/dronestrikes' do
   @strikes = Dronestrike.all
-  erb :'/strikes/index'
+  if request.xhr?
+    erb :'/strikes/_strikedetails', layout: false
+  else
+    erb :'/strikes/index'
+  end
 end

@@ -7,5 +7,6 @@ not_found do
 end
 
 get '/map' do
+  @strikes = Dronestrike.all
   erb :'/map'
 end

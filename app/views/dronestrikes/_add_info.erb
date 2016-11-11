@@ -1,12 +1,11 @@
-<ul>
-<li><strong>Background:</strong> <%= @strike.narrative%></li>
+
 <% if @strike.civilian_deaths %>
-<li><strong>Civilians killed:</strong> <%= @strike.civilian_deaths%></li>
+<p><strong>Civilians killed:</strong> <%= @strike.civilian_deaths%></p>
 <% end %>
 <% if @strike.child_deaths %>
-<li><strong>Children killed:</strong> <%= @strike.child_deaths %></li>
+<p><strong>Children killed:</strong> <%= @strike.child_deaths %></p>
 <% end %>
 <% unless @strike.names.empty? %>
-<li><strong>People killed:</strong> <%= @strike.names %></li>
+<p><strong>People killed:</strong> <%= @strike.names %></p>
 <% end %>
-</ul>
+<p><strong>Background:</strong> <%= @strike.narrative%></p>

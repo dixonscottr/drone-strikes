@@ -1,0 +1,11 @@
+
+<% if @strike.civilian_deaths %>
+<p><strong>Civilians killed:</strong> <%= @strike.civilian_deaths%></p>
+<% end %>
+<% if @strike.child_deaths %>
+<p><strong>Children killed:</strong> <%= @strike.child_deaths %></p>
+<% end %>
+<% unless @strike.names.empty? %>
+<p><strong>People killed:</strong> <%= @strike.names %></p>
+<% end %>
+<p><strong>Background:</strong> <%= @strike.narrative%></p>

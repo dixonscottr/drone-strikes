@@ -1,0 +1,30 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('upcoming', {'packages':['geochart']});
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Drone Strikes'],
+          ['Yemen', <%= @strikes.where("country = ?", 'Yemen').count %>],
+          ['Pakistan', <%= @strikes.where("country = ?", 'Pakistan').count %> ],
+          ['Somalia', <%= @strikes.where("country = ?", 'Somalia').count %>],
+          ['Afghanistan', <%= @strikes.where("country = ?", 'Pakistan-Afghanistan Border').count %>]
+        ]);
+
+        var options = {
+          minValue: 0,
+          colors: ['#ffcccc', '#ff0000'],
+          backgroundColor: '#81d4fa',
+          datalessRegionColor: '#00853f',
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+<div id="regions_div" style="width: 900px; height: 500px;"></div>

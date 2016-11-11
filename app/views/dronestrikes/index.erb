@@ -1,0 +1,19 @@
+<div class="row">
+<% @strikes.each do |strike| %>
+  <div class="col s12 m2">
+  <div class="card #006064 cyan darken-4 hoverable">
+    <div class="card-content white-text">
+      <span class="card-title"><a class='get-drone-info' href='<%= "/dronestrikes/#{strike.id}" %>'><%= strike.strike_date %></a></span>
+      <p><%= strike.country %> | <%=strike.total_deaths %> killed</p>
+      <div class='additional-info'>
+
+      </div>
+    </div>
+    <div class="card-action">
+      <a href='<%= strike.link %>'>Link to story</a>
+      <a href='<%= "http://maps.google.com/?ll=#{strike.latitude},#{strike.longitude}" %>'>Map</a>
+    </div>
+    </div>
+  </div>
+<% end %>
+</div>

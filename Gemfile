@@ -25,6 +25,8 @@ gem 'bcrypt'
 
 gem 'json'
 
+gem 'puma'
+
 group :test do
   gem 'faker'
   gem 'rspec'

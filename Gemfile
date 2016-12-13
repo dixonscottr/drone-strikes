@@ -27,7 +27,7 @@ gem 'json'
 
 gem 'figaro'
 
-group :test do
+# group :test do
   gem 'faker'
   gem 'rspec'
-end
+# end

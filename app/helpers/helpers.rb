@@ -6,7 +6,6 @@ def lat_lon(strikes)
       strike_position: {lat: lat, lng: lng},
       country: strike.country,
       location: strike.location,
-      location: strike.location,
       narrative: strike.narrative,
       target: strike.target,
       deaths: strike.total_deaths,

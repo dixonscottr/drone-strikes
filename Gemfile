@@ -25,7 +25,7 @@ gem 'bcrypt'
 
 gem 'json'
 
-gem 'puma'
+gem 'figaro'
 
 group :test do
   gem 'faker'

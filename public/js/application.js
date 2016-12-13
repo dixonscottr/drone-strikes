@@ -28,3 +28,30 @@ $(document).ready(function() {
 
 
 });
+
+function mapStrikes(strikes_json) {
+  infoWindow = new google.maps.InfoWindow({
+    minWidth : 300
+  });
+  var strikes = [];
+  strikes_json.forEach(function(strike) {
+    var strikePos = strike.strike_position;
+    var marker = new google.maps.Marker({
+      position: strikePos,
+      map: map,
+      icon: {
+        path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW,
+        fillColor: 'red',
+        fillOpacity: 0.8,
+        scale: 2,
+        strokeColor: 'maroon',
+        strokeWeight: 1
+      },
+      label: strike.bureau_id,
+      date: strike.date,
+      deaths: strike.deaths
+    });
+    strikes.push(marker);
+  })
+  return strikes;
+}

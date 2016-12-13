@@ -4,9 +4,10 @@
         var map;
         function initMap() {
           map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 8
+            center: {lat: 22.445, lng: 59.578},
+            zoom: 4
           });
+        var strikes = mapStrikes(<%= lat_lon(@strikes)%>);
         }
       </script>
       <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_maps_api']%>&callback=initMap" async defer>

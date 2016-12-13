@@ -26,7 +26,7 @@ th {
     width : 100%;
     position: fixed;
     bottom: 0px;
-    /*margin-top: 20px*/
+    /*margin-top: 20px;*/
   }
 
   a {
@@ -34,7 +34,7 @@ th {
   }
 
   a:hover {
-    color: red;
+    color: black;
   }
 
   #linked-data {
@@ -48,7 +48,21 @@ img {
   border-radius: 10px;
 }
 
-#regions-div {
-  margin: 100px;
+#map {
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  border: 3px solid black;
 }
 
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.map-container {
+  margin-bottom: 100px;
+
+}

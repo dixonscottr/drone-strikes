@@ -1,31 +1,15 @@
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-      google.charts.load('upcoming', {'packages':['geochart']});
-      google.charts.setOnLoadCallback(drawRegionsMap);
-
-      function drawRegionsMap() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Country', 'Drone Strikes'],
-          ['Yemen', <%= @strikes.where("country = ?", 'Yemen').count %>],
-          ['Pakistan', <%= @strikes.where("country = ?", 'Pakistan').count %> ],
-          ['Somalia', <%= @strikes.where("country = ?", 'Somalia').count %>],
-          ['Afghanistan', <%= @strikes.where("country = ?", 'Pakistan-Afghanistan Border').count %>]
-        ]);
-
-        var options = {
-          minValue: 0,
-          colors: ['#ffcccc', '#ff0000'],
-          backgroundColor: '#81d4fa',
-          datalessRegionColor: '#00853f',
-        };
-
-        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
-        chart.draw(data, options);
-      }
-    </script>
-
-<div class='container'>
-  <div id="regions_div"></div>
+<div class='container map-container'>
+  <div id="map"></div>
+      <script>
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_maps_api']%>&callback=initMap" async defer>
+      </script>
+  </div>
 </div>

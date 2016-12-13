@@ -42,16 +42,29 @@ function mapStrikes(strikes_json) {
       icon: {
         path: google.maps.SymbolPath.BACKWARD_OPEN_ARROW,
         fillColor: 'red',
-        fillOpacity: 0.8,
-        scale: 2,
+        fillOpacity: 0.5,
+        scale: 3,
         strokeColor: 'maroon',
         strokeWeight: 1
       },
       label: strike.bureau_id,
       date: strike.date,
-      deaths: strike.deaths
+      deaths: strike.deaths,
+      country: strike.country
     });
+    marker.addListener('click', function() {
+      showStrikeInfo(marker);
+    })
     strikes.push(marker);
   })
   return strikes;
+}
+
+function showStrikeInfo(marker) {
+  var deaths = marker.deaths;
+  var country = marker.country;
+  var msg1 = "<p class='center-align'>Country: " + country + '</h5>'
+  var msg2 = "<p class='center-align'>Deaths: " + deaths + "</h5>"
+  infoWindow.setContent("<div class='info-window'>" + msg1 + msg2 + "</div>");
+  infoWindow.open(map, marker)
 }

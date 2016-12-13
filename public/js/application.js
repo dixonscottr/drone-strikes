@@ -50,6 +50,8 @@ function mapStrikes(strikes_json) {
       label: strike.bureau_id,
       date: strike.date,
       deaths: strike.deaths,
+      location: strike.location,
+      child_deaths: strike.child_deaths,
       country: strike.country
     });
     marker.addListener('click', function() {
@@ -61,12 +63,21 @@ function mapStrikes(strikes_json) {
 }
 
 function showStrikeInfo(marker) {
-  var deaths;
-  marker.deaths ? deaths=marker.deaths : 0
+  var casualties;
+  marker.deaths ? casualties=marker.deaths : casualties=0
+  if(casualties == 1) {
+    casualties += " death"
+  }
+  else {
+    casualties += " deaths"
+  }
+  if(marker.child_deaths) {
+    casualties += ` (${marker.child_deaths} children)`
+  }
   var location;
-  marker.province
-  var msg1 = `<p class='center-align'>${country} </h5>`
-  var msg2 = `<p class='center-align'>Deaths: ${deaths} </h5>`
+  marker.location ? location=`${marker.location}, ${marker.country}` : location=marker.country
+  var msg1 = `<p class='center-align'>${location} </h5>`
+  var msg2 = `<p class='center-align'>Casualties: ${casualties} </h5>`
   infoWindow.setContent("<div class='info-window'>" + msg1 + msg2 + "</div>");
   infoWindow.open(map, marker)
 }

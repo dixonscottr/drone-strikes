@@ -5,7 +5,7 @@ def lat_lon(strikes)
     {
       strike_position: {lat: lat, lng: lng},
       country: strike.country,
-      province: strike.province,
+      location: strike.location,
       location: strike.location,
       narrative: strike.narrative,
       target: strike.target,

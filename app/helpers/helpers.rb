@@ -1,7 +1,9 @@
 def lat_lon(strikes)
   strikes.map do |strike|
+    strike.latitude ? lat=strike.latitude.to_f : lat=nil
+    strike.longitude ? lng=strike.longitude.to_f : lng=nil
     {
-      strike_position: {lat: strike.latitude.to_f, lng: strike.longitude.to_f},
+      strike_position: {lat: lat, lng: lng},
       country: strike.country,
       province: strike.province,
       location: strike.location,

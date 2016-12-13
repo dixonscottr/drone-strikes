@@ -61,10 +61,12 @@ function mapStrikes(strikes_json) {
 }
 
 function showStrikeInfo(marker) {
-  var deaths = marker.deaths;
-  var country = marker.country;
-  var msg1 = "<p class='center-align'>Country: " + country + '</h5>'
-  var msg2 = "<p class='center-align'>Deaths: " + deaths + "</h5>"
+  var deaths;
+  marker.deaths ? deaths=marker.deaths : 0
+  var location;
+  marker.province
+  var msg1 = `<p class='center-align'>${country} </h5>`
+  var msg2 = `<p class='center-align'>Deaths: ${deaths} </h5>`
   infoWindow.setContent("<div class='info-window'>" + msg1 + msg2 + "</div>");
   infoWindow.open(map, marker)
 }

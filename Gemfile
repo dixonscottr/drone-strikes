@@ -27,7 +27,7 @@ gem 'json'
 
 gem 'figaro'
 
-
+gem 'puma'
 gem 'faker'
 gem 'rspec'
 

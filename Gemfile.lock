@@ -40,6 +40,7 @@ GEM
     pry-byebug (3.4.0)
       byebug (~> 9.0)
       pry (~> 0.10)
+    puma (3.6.2)
     rack (1.6.5)
     rack-protection (1.5.3)
       rack
@@ -96,6 +97,7 @@ DEPENDENCIES
   pg
   pry
   pry-byebug
+  puma
   rake
   rspec
   shotgun

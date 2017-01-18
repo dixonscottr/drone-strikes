@@ -1,4 +1,5 @@
-
+<h3 class='center'><%= @strike.strike_date %></h3>
+<p class='center'><%= @strike.country %>  |  <%= @strike.total_deaths %> killed</p>
 <% if @strike.civilian_deaths %>
 <p><strong>Civilians killed:</strong> <%= @strike.civilian_deaths%></p>
 <% end %>
@@ -9,3 +10,6 @@
 <p><strong>People killed:</strong> <%= @strike.names %></p>
 <% end %>
 <p><strong>Background:</strong> <%= @strike.narrative%></p>
+<p class='center'> <a href='<%= @strike.link %>' target="_blank"> Story</a> | </a>
+      <a href='<%= "http://maps.google.com/?ll=#{@strike.latitude},#{@strike.longitude}" %>' target="_blank">Map</a>
+</p>

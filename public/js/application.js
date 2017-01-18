@@ -1,32 +1,19 @@
 $(document).ready(function() {
   $(".dropdown-button").dropdown({hover: false});
 
-  // $('#view-all').click(function(event){
+  // $('a.get-drone-info').on('click', function(event){
   //   event.preventDefault();
-  //   var link = $(this).attr('href');
+  //   var $card = $(this).closest('div.card');
+  //   var url = $(this).attr('href');
   //   $.ajax({
-  //     url: link,
+  //     url: url,
   //     method: 'get'
-  //   }).done(function(serverResponse){
-  //     $('main').append(serverResponse);
+  //   }).done(function(serverResponse) {
+  //     debugger
+  //     $card.closest('.row').find('.additional-info').empty();
+  //     $card.find('.additional-info').html(serverResponse);
   //   });
   // });
-
-  $('a.get-drone-info').on('click', function(event){
-    event.preventDefault();
-    var $card = $(this).closest('div.card');
-    var url = $(this).attr('href');
-    $.ajax({
-      url: url,
-      method: 'get'
-    }).done(function(serverResponse) {
-      $card.closest('.row').find('.additional-info').empty();
-      $card.find('.additional-info').html(serverResponse);
-    });
-  });
-
-
-
 });
 
 function mapStrikes(strikes_json) {

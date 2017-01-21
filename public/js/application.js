@@ -1,20 +1,30 @@
-$(document).ready(function() {
-  $(".dropdown-button").dropdown({hover: false});
+const lightbox = document.querySelector('#lightbox');
+const closeButton = document.querySelector('#close-button')
+const links = document.querySelectorAll(".get-drone-info");
 
-  // $('a.get-drone-info').on('click', function(event){
-  //   event.preventDefault();
-  //   var $card = $(this).closest('div.card');
-  //   var url = $(this).attr('href');
-  //   $.ajax({
-  //     url: url,
-  //     method: 'get'
-  //   }).done(function(serverResponse) {
-  //     debugger
-  //     $card.closest('.row').find('.additional-info').empty();
-  //     $card.find('.additional-info').html(serverResponse);
-  //   });
-  // });
+closeLightBox = () => (lightbox.style.display = 'none');
+
+links.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    lightbox.style.display = 'block';
+    const url = link.attributes.href.value
+
+    $.ajax({
+      url: url,
+      method: 'GET'
+    })
+    .done( (res) => {
+      const lightboxContent = document.querySelector('#lightbox-content');
+      lightboxContent.innerHTML = res;
+    });
+  }, false);
 });
+if(closeButton) {
+  closeButton.addEventListener('click', closeLightBox); 
+}
+
+// JS for google maps
 
 function mapStrikes(strikes_json) {
   infoWindow = new google.maps.InfoWindow({
@@ -23,7 +33,8 @@ function mapStrikes(strikes_json) {
   var strikes = [];
   strikes_json.forEach(function(strike) {
     var strikePos = strike.strike_position;
-    var marker = new google.maps.Marker({
+    if(strikePos.lat && strikePos.lng) {
+      var marker = new google.maps.Marker({
       position: strikePos,
       map: map,
       icon: {
@@ -45,6 +56,7 @@ function mapStrikes(strikes_json) {
       showStrikeInfo(marker);
     })
     strikes.push(marker);
+    }
   })
   return strikes;
 }

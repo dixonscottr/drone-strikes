@@ -1,7 +1,3 @@
-// $(document).ready(function() {
-//   $(".dropdown-button").dropdown({hover: false});
-// });
-
 const lightbox = document.querySelector('#lightbox');
 const closeButton = document.querySelector('#close-button')
 const links = document.querySelectorAll(".get-drone-info");
@@ -24,8 +20,11 @@ links.forEach(link => {
     });
   }, false);
 });
+if(closeButton) {
+  closeButton.addEventListener('click', closeLightBox); 
+}
 
-closeButton.addEventListener('click', closeLightBox);
+// JS for google maps
 
 function mapStrikes(strikes_json) {
   infoWindow = new google.maps.InfoWindow({
@@ -34,7 +33,8 @@ function mapStrikes(strikes_json) {
   var strikes = [];
   strikes_json.forEach(function(strike) {
     var strikePos = strike.strike_position;
-    var marker = new google.maps.Marker({
+    if(strikePos.lat && strikePos.lng) {
+      var marker = new google.maps.Marker({
       position: strikePos,
       map: map,
       icon: {
@@ -56,6 +56,7 @@ function mapStrikes(strikes_json) {
       showStrikeInfo(marker);
     })
     strikes.push(marker);
+    }
   })
   return strikes;
 }

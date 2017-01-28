@@ -24,6 +24,43 @@ if(closeButton) {
   closeButton.addEventListener('click', closeLightBox); 
 }
 
+// filter button logic
+
+const yearButtons = document.querySelectorAll('a.year-button');
+const countryButtons = document.querySelectorAll('a.country-button');
+const cards = [...document.querySelectorAll('div.card')];
+
+const selectYear = (year) => {
+  cards.forEach(card => {
+    let cardYear = card.firstChild.nextElementSibling.children[0].innerText.split('-')[0];
+    if(Number(cardYear) !== Number(year)) {
+      card.classList.add('hidden');
+    } else {
+      card.classList.remove('hidden');
+    }
+  })
+}
+
+const selectCountry = (country) => {
+  cards.forEach(card => {
+    let cardCountry = card.firstChild.nextElementSibling.children[1].innerText.split(' |')[0]
+    if(country !== cardCountry) {
+      card.classList.add('hidden');
+    } else {
+      card.classList.remove('hidden');
+    }
+  })
+}
+
+yearButtons.forEach(year => {
+  const y = year.innerText;
+  year.addEventListener('click', selectYear.bind(null, y));
+});
+countryButtons.forEach(country => {
+  const c = country.innerText;
+  country.addEventListener('click', selectCountry.bind(null, c));
+});
+
 // JS for google maps
 
 function mapStrikes(strikes_json) {

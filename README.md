@@ -8,4 +8,5 @@ Map view
 ![map screenshot](public/map-screenshot.png)
 
 Detail view
+
 ![main page screenshot](public/screencast.gif)
